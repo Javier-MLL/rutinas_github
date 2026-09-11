@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apeivex Routines - Sistema de Productividad Gamificado</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fuentes de Google para un estilo tecnológico y limpio -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Encabezado de la Aplicación -->
+        <header class="main-header">
+            <div class="brand">
+                <h1>APEIVEX ROUTINES</h1>
+                <span class="developer-tag">By Apeivex Studios</span>
+            </div>
+            <div class="date-display" id="current-date-display">--/--/----</div>
+        </header>
+
+        <!-- Panel de Estado del Usuario / Gamificación -->
+        <section class="profile-card">
+            <div class="profile-header">
+                <div class="rank-badge" id="rank-icon">🪵</div>
+                <div class="profile-info">
+                    <h2 id="user-name-display">Recluta Inexplorado</h2>
+                    <p class="rank-title" id="rank-title-display">Madera 1</p>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-labels">
+                    <span id="current-xp-display">0 XP</span>
+                    <span id="next-level-xp-display">120 XP</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="xp-progress-bar"></div>
+                </div>
+                <div class="total-xp-counter">Progreso Total: <strong id="total-xp-display">0</strong> / 75,600 XP</div>
+
+        </section>
+
+        <!-- Panel de Control: Añadir Tarea -->
+        <section class="task-creator">
+            <h3>+ ASIGNAR NUEVA RUTINA</h3>
+            <form id="task-form" onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <input type="text" id="task-name" placeholder="Ej. Meditar, programar, entrenar..." max-length="60" required autocomplete="off">
+                </div>
+                <div class="control-row">
+                    <div class="select-group">
+                        <label for="task-difficulty">Dificultad:</label>
+                        <select id="task-difficulty">
+                            <option value="facil">Fácil (x0.5)</option>
+                            <option value="normal" selected>Normal (x1.0)</option>
+                            <option value="dificil">Difícil (x1.5)</option>
+                            <option value="imposible">Imposible (x2.0)</option>
+                            <option value="dios">Dios (x3.0)</option>
+                        </select>
+                    </div>
+                    <button type="button" id="btn-add-task" class="btn-primary">Desplegar Tarea</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Listado Dinámico de Rutinas -->
+        <section class="tasks-container">
+            <div class="section-title-row">
+                <h3>RUTINAS DEL DÍA</h3>
+                <span class="task-count-tag" id="task-count">0 activas</span>
+            </div>
+            <div class="tasks-list" id="tasks-list-container">
+                <!-- Las tarjetas de tareas se inyectan dinámicamente mediante JS -->
+                <div class="empty-state" id="empty-state-msg">
+                    <p>No hay rutinas asignadas en tu matriz actual. ¡Añade una arriba para empezar a ganar XP!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

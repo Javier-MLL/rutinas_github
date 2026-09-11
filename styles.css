@@ -1,0 +1,386 @@
+/* VARIABLES DE DISEÑO: Modo Oscuro Tecnológico */
+:root {
+    --bg-main: #0B0F19;
+    --bg-card: #151D30;
+    --bg-input: #1E2942;
+    --text-main: #F3F4F6;
+    --text-muted: #9CA3AF;
+    --accent-cyan: #00F0FF;
+    --accent-cyan-dim: rgba(0, 240, 255, 0.15);
+    --border-color: #263554;
+    
+    /* Colores de Dificultad */
+    --color-facil: #10B981;
+    --color-normal: #3B82F6;
+    --color-dificil: #F59E0B;
+    --color-imposible: #EF4444;
+    --color-dios: #A855F7;
+}
+
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* HEADER */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.brand h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-main);
+}
+
+.developer-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+}
+
+.date-display {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-card);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+/* PERFIL Y GAMIFICACIÓN */
+.profile-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.rank-badge {
+    font-size: 2.5rem;
+    background: var(--bg-input);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan-dim);
+}
+
+.profile-info h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.rank-title {
+    color: var(--accent-cyan);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* BARRA DE PROGRESO */
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.progress-bar-bg {
+    background: var(--bg-input);
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.progress-bar-fill {
+    background: linear-gradient(90deg, #00C2FF 0%, var(--accent-cyan) 100%);
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.total-xp-counter {
+    text-align: right;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+.total-xp-counter strong {
+    color: var(--text-main);
+}
+
+/* CREADOR DE TAREAS */
+.task-creator {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.task-creator h3, .tasks-container h3 {
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.input-group input {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-cyan);
+}
+
+.control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+    gap: 1rem;
+}
+
+.select-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.select-group select {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--accent-cyan);
+    color: var(--bg-main);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+/* LISTA DE TAREAS */
+.section-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-count-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    background: var(--bg-input);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    color: var(--accent-cyan);
+    border: 1px solid var(--border-color);
+}
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* TARJETA DE TAREA INDIVIDUAL */
+.task-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.task-item:hover {
+    border-color: #2e3f63;
+}
+
+.task-item.completed {
+    border-color: var(--accent-cyan-dim);
+    background: rgba(21, 29, 48, 0.6);
+}
+
+.task-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    max-width: 70%;
+}
+
+.task-title {
+    font-weight: 600;
+    font-size: 1rem;
+    word-break: break-word;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.task-item.completed .task-title {
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.difficulty-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: #FFF;
+}
+
+.badge-facil { background-color: var(--color-facil); }
+.badge-normal { background-color: var(--color-normal); }
+.badge-dificil { background-color: var(--color-dificil); }
+.badge-imposible { background-color: var(--color-imposible); }
+.badge-dios { background-color: var(--color-dios); }
+
+.xp-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+}
+
+/* BOTONES DE ACCIÓN EN TAREAS */
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-check {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.btn-check:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.task-item.completed .btn-check {
+    background: var(--accent-cyan);
+    color: var(--bg-main);
+    border-color: var(--accent-cyan);
+}
+
+.btn-delete {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.btn-delete:hover {
+    color: var(--color-imposible);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+#xp-progress-bar{
+    width: 0%
+}
